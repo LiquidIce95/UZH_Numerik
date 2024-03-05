@@ -1,9 +1,9 @@
-from ex2_b import compute
+from ex2_b import compute,equidist
 import math
 
 
 if __name__ == "__main__":
-    print(compute(lambda x: math.exp(-x**2),5,500))
+    print(compute(lambda x: math.exp(-x**2),equidist,5,500))
 
 
 
