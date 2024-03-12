@@ -5,6 +5,7 @@ def evaluationPointsPn(f:callable, nodalPoints : list,evalPoints:list)->list:
   """ 
     We solve the problem foreach intervall, where we interpolate the endpoints 
     and the mitdpoint, which do the evaluation with the neville algorithm
+    ASSUPTION: at least two nodal points
   """
   nodalPoints.sort()
   evalPoints.sort()
