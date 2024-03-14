@@ -13,3 +13,6 @@ week2/ex2_d.py
 week2/ex2_e.py
 week3/__init__.py
 week3/ex1_a.py
+week3/ex1_a_test.py
+week3/ex1_b.py
+week3/ex1_c.py

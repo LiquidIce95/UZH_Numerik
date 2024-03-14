@@ -1,6 +1,6 @@
 from unittest import TestCase
 import unittest
-from Ex2_a import neville,nevilleDP
+from week2.Ex2_a import neville,nevilleDP
 
 
 class TestSuite(TestCase):
