@@ -65,6 +65,6 @@ def plotPolyEval(f :callable,pointdistri:callable,l:int,p:int,Intervallstart)->l
 
 if __name__ == "__main__":
 
-  plotPolyEval(lambda x: math.e**-x**2,equidist,5,500,-3)
+  plotPolyEval(lambda x: math.e**-x**2,equidist,5,500,-5)
 
   """the runge phenomena seems to have imporoved"""
