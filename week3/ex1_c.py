@@ -14,7 +14,6 @@ def PlotError(f:callable,pointdistri:callable,l:int,p:int,Intervallstart:int)->l
         assuming Intervallstart <=0
   """
 
-  N = [(2**n)+1 for n in range(0,p+1)]
   PolyY,X,N = PolyEvals(f,pointdistri,l,p,Intervallstart)
 
   fY = [f(x) for x in X]
@@ -26,8 +25,10 @@ def PlotError(f:callable,pointdistri:callable,l:int,p:int,Intervallstart:int)->l
 
     """plotting"""
 
+  PlotN = [j for j in range(1,l+1)]
+  PlotErr = [Errors[j] for j in range(0,l)]
 
-  plt.plot(N, Errors)
+  plt.plot(PlotN, PlotErr)
 
   plt.xlabel('n')
   plt.ylabel('Errors')
@@ -39,3 +40,4 @@ def PlotError(f:callable,pointdistri:callable,l:int,p:int,Intervallstart:int)->l
 
 if __name__ == "__main__":
   PlotError(lambda x: math.e**-x**2,equidist,10,500,-5)
+  """since we can see a logarithmic curve its an exponential convergence"""
