@@ -1,6 +1,6 @@
 from week4.ex3_b import computeValue,computeError,plotErrors
 
-def simpleForward(f:callable,h:float,x0)->float:
+def simpleForward(f:callable,x0:float,h:float)->float:
   """
   @f is the functions whose derivative we approximate
   @h is the distance increment for the points
@@ -29,4 +29,6 @@ def SolveTask()->None:
 
 if __name__ == "__main__":
   SolveTask()
-  """this behaviour is unexplainable"""
+  """up to a certain point everything is fine, but then f1/h and f0/h get very 
+  large (because h gets very small) so we are subtracting large numbers which are 
+  almost equal, which causes significant arithmetic errors."""
