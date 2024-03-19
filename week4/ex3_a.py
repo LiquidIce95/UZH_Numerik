@@ -33,7 +33,7 @@ def CcomputeDiffOp(fi:list,h:float)->float:
     """
     assert len(fi)==3
 
-    return (-fi[0]-2*fi[1]+fi[2])/(h**2)
+    return (fi[0]-2*fi[1]+fi[2])/(h**2)
 
 
 
