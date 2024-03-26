@@ -1,4 +1,4 @@
-from week5.ex2_b import midpoint_rule,simpsons_method,trapezoidal_method
+from week5.ex2_c import *
 import math
 from matplotlib import pyplot as plt
 
@@ -6,8 +6,8 @@ if __name__ == "__main__":
     a = 0
     B = [2**(-n) for n in range(1,8)]
     f = lambda x : math.e**x
-    ErrorMidpoint = [abs((math.e -1)- midpoint_rule(f,a,b)) for b in B]
-    ErrorSimpson = [abs((math.e -1)- simpsons_method(f,a,b)) for b in B]
+    ErrorMidpoint = [abs((math.e**b -1)- midpoint_rule(f,a,b)) for b in B]
+    ErrorSimpson = [abs((math.e**b -1)- simpsons_method(f,a,b)) for b in B]
     ErrorTrapezoidal = [abs((math.e -1)- trapezoidal_method(f,a,b)) for b in B]
     ReferenceCurves=[[h**p for p in range(1,8)] for h in B]
 
@@ -16,7 +16,7 @@ if __name__ == "__main__":
     plt.plot(B,ErrorTrapezoidal,label="Error trapezoidal with repsect to h")
 
     for Curve in ReferenceCurves:
-        plt.plot(B,Curve)
+        plt.plot(B,Curve,linestyle='dotted')
 
     plt.title('Error of difference operator of h')
     plt.xlabel('distance h')
@@ -29,4 +29,8 @@ if __name__ == "__main__":
 
     """
     conclusions
+    its in congruence with the cocnlusions of task 1 
+    for trapezoidal no convergence 
+    for midpoint and simposons exponential convergence but simpons converges
+    faster
     """

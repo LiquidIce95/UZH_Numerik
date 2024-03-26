@@ -76,7 +76,7 @@ if __name__ == "__main__":
     print(ErrorMidpoint,ErrorSimpsons,ErrorSimpsons)
 
     """
-    Error of midpoint is smallest, since e**x on subintervalls is close to x
+    Error of midpoint is smallest, since e**x-1 on subintervalls is close to x
     which can be best approximated with midoint (area of triangle)
     Errors of Trapezoidal and Simposons are equal
     """
