@@ -9,10 +9,14 @@ if __name__ == "__main__":
     ErrorMidpoint = [abs((math.e -1)- midpoint_rule(f,a,b)) for b in B]
     ErrorSimpson = [abs((math.e -1)- simpsons_method(f,a,b)) for b in B]
     ErrorTrapezoidal = [abs((math.e -1)- trapezoidal_method(f,a,b)) for b in B]
+    ReferenceCurves=[[h**p for p in range(1,8)] for h in B]
 
     plt.plot(B,ErrorMidpoint,label="Error of midpoint with repsect to h")
     plt.plot(B,ErrorSimpson,label="Error simposons with repsect to h")
     plt.plot(B,ErrorTrapezoidal,label="Error trapezoidal with repsect to h")
+
+    for Curve in ReferenceCurves:
+        plt.plot(B,Curve)
 
     plt.title('Error of difference operator of h')
     plt.xlabel('distance h')
