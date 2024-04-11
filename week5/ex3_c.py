@@ -32,4 +32,5 @@ if __name__ == "__main__":
     plt.show()
 
     """Conclusions"""
-    """they all converge exponential"""
+    """they all converge algebraically
+      and simposons and trapezoidal are overlapping"""

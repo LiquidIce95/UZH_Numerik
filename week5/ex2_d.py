@@ -8,15 +8,22 @@ if __name__ == "__main__":
     f = lambda x : math.e**x
     ErrorMidpoint = [abs((math.e**b -1)- midpoint_rule(f,a,b)) for b in B]
     ErrorSimpson = [abs((math.e**b -1)- simpsons_method(f,a,b)) for b in B]
-    ErrorTrapezoidal = [abs((math.e -1)- trapezoidal_method(f,a,b)) for b in B]
+    ErrorTrapezoidal = [abs((math.e**b -1)- trapezoidal_method(f,a,b)) for b in B]
     ReferenceCurves=[[h**p for p in range(1,8)] for h in B]
 
     plt.plot(B,ErrorMidpoint,label="Error of midpoint with repsect to h")
     plt.plot(B,ErrorSimpson,label="Error simposons with repsect to h")
     plt.plot(B,ErrorTrapezoidal,label="Error trapezoidal with repsect to h")
 
+    bound = lambda x : math.e**x * x**5 * 1/60
+
+    bounds = [bound(h) for h in B]
+
     for Curve in ReferenceCurves:
         plt.plot(B,Curve,linestyle='dotted')
+
+    
+    plt.plot(B,bounds,label="max error for trapezoidal")
 
     plt.title('Error of difference operator of h')
     plt.xlabel('distance h')
@@ -29,8 +36,8 @@ if __name__ == "__main__":
 
     """
     conclusions
-    its in congruence with the cocnlusions of task 1 
-    for trapezoidal no convergence 
-    for midpoint and simposons exponential convergence but simpons converges
-    faster
+    of course task1 holds since the plottet bound from task1 e is above the simposons curve
+    in parallel, also simposons has the smallest error 
+
+    trapezoidal and midpoint are parallel to each other 
     """

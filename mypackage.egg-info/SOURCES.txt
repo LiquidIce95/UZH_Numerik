@@ -24,3 +24,6 @@ week4/ex3_c.py
 week5/__init__.py
 week5/ex2_b.py
 week5/ex2_c.py
+week5/ex2_d.py
+week5/ex3_a_b.py
+week5/ex3_c.py
