@@ -30,5 +30,16 @@ def compositeNode3GaussQuad(f:callable,L:float,R:float,n:int)->float:
 
     return sum(Integrals)  
 
+def composite_quadrature(f, a, b, n):
+    result = 0
+    L = a
+
+    for i in range(1, n+1):
+        R = a + i * (b-a)/n
+        result += node3GausQuad(f, L, R)
+        L = R
+
+    return result
+
 if __name__ == "__main__":
   pass

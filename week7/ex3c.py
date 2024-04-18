@@ -1,29 +1,33 @@
-from week7.ex3b import compositeNode3GaussQuad
+from week7.ex3b import compositeNode3GaussQuad,composite_quadrature
 from week5.ex3_a_b import midpoint_composite,simpsons_composite,trapezoidal_composite
 from math import e
 from matplotlib import pyplot as plt
+import numpy as np
 
 if __name__ == "__main__":
-  NumOfPoints = [2**n for n in range(1,10)]
-  f = lambda x : e**x
+  n_list = np.arange(1,10)
+  m_list = np.power(2, n_list)
+  h_list = 1./m_list  
+
+  f = np.exp
   a,b = 0,1
-  I = e
+  I = np.exp(1)-1
 
-  errNode3GaussQuad = [abs(I - compositeNode3GaussQuad(f,a,b,m)) for m in NumOfPoints]
-  errSimps = [abs(I - simpsons_composite(f,a,b,m)) for m in NumOfPoints]
-  errMidp = [abs(I - midpoint_composite(f,a,b,m)) for m in NumOfPoints]
-  errTrap = [abs(I - trapezoidal_composite(f,a,b,m)) for m in NumOfPoints]
+  errNode3GaussQuad = [abs(I - composite_quadrature(f,a,b,m)) for m in m_list]
+  errSimps = [abs(I - simpsons_composite(f,a,b,m)) for m in m_list]
+  errMidp = [abs(I - midpoint_composite(f,a,b,m)) for m in m_list]
+  errTrap = [abs(I - trapezoidal_composite(f,a,b,m)) for m in m_list]
 
 
-  refCurves = [ [h**p for p in range(1,10)]  for h in NumOfPoints]
+  refCurves = [h_list**p for p in range(2,7)]
 
-  plt.plot(NumOfPoints,errNode3GaussQuad,label="3 node gauss quadrature")
-  plt.plot(NumOfPoints,errSimps,label="Simpsons")
-  plt.plot(NumOfPoints,errMidp,label="midpoint")
-  plt.plot(NumOfPoints,errTrap,label="Trapezoidal")
+  plt.plot(h_list,errNode3GaussQuad,label="3 node gauss quadrature")
+  # plt.plot(h_list,errSimps,label="Simpsons")
+  # plt.plot(h_list,errMidp,label="midpoint")
+  # plt.plot(h_list,errTrap,label="Trapezoidal")
 
-  for curve in refCurves:
-    plt.plot(NumOfPoints,curve,linestyle='dotted')
+  for j in range(len(refCurves)):
+    plt.plot(h_list,refCurves[j],linestyle='dotted',label=f"p={j+2}")
   
   plt.title('Error of composite Integration with repsect to number of points')
   plt.xlabel('number of points')

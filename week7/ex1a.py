@@ -16,7 +16,7 @@ def bisectionMethod(f:callable,a:float,b:float,epsilon:float,maxiter:int)->float
   x = []
   n = 0
 
-  while n < maxiter and  abs(e) > epsilon:
+  while n < maxiter and  abs((b-a)/2**n) > epsilon:
     x.append(1/2 *(A[n]+B[n]))
 
     if f(x[n])*f(A[n]) > 0:
@@ -29,7 +29,7 @@ def bisectionMethod(f:callable,a:float,b:float,epsilon:float,maxiter:int)->float
     n += 1
     e = B[n]-A[n]
 
-  return (B[-1]+A[-1])/2
+  return x[-1]
   
 
 

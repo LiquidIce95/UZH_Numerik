@@ -32,8 +32,8 @@ class Approximation:
         yAxis.append(result)
 
       plt.plot(xAxis,yAxis,label='Approximations of pi')
-      plt.xscale('log',base=2)
-      plt.yscale('log',base=2)
+      plt.xscale('log',base=10)
+      plt.yscale('log',base=10)
       plt.grid(True)
       plt.legend()
       plt.show()
@@ -47,8 +47,8 @@ class Approximation:
 
       plt.plot(xAxis,yAxis,label='Errors between actual value and approximation')
       plt.plot(xAxis,xAxis,label='maxErrors')
-      plt.xscale('log',base=2)
-      plt.yscale('log',base=2)
+      plt.xscale('log',base=10)
+      plt.yscale('log',base=10)
       plt.grid(True)
       plt.legend()
       plt.show()
