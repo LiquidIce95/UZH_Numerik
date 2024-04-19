@@ -50,4 +50,5 @@ if __name__ == "__main__":
 
   print(Errors)
 
-  """the quadratic formula from Exercise c is best"""
+  """the quadratic formula from Exercise c is best because the weights are choosen such that its exactly the 
+  integral we are trying to compute"""
