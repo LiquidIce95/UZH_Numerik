@@ -50,5 +50,4 @@ if __name__ == "__main__":
 
   print(Errors)
 
-  """Obviously Midpoint is the most accurate because the integral is approximately
-    the area of the midpoint"""
+  """the quadratic formula from Exercise c is best"""
