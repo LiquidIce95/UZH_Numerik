@@ -22,9 +22,9 @@ if __name__ == "__main__":
   refCurves = [h_list**p for p in range(2,7)]
 
   plt.plot(h_list,errNode3GaussQuad,label="3 node gauss quadrature")
-  # plt.plot(h_list,errSimps,label="Simpsons")
-  # plt.plot(h_list,errMidp,label="midpoint")
-  # plt.plot(h_list,errTrap,label="Trapezoidal")
+  plt.plot(h_list,errSimps,label="Simpsons")
+  plt.plot(h_list,errMidp,label="midpoint")
+  plt.plot(h_list,errTrap,label="Trapezoidal")
 
   for j in range(len(refCurves)):
     plt.plot(h_list,refCurves[j],linestyle='dotted',label=f"p={j+2}")
@@ -41,5 +41,5 @@ if __name__ == "__main__":
 
   """
   analysis:
-  
+  the 3 node gauss quadrature is best with algebraic convergence of order p = 6 as can be seen from the diagram
   """
