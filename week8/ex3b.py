@@ -1,7 +1,6 @@
 from week8.ex3a import *
 
-def createMatricesAndVectors():
-  n_values = [1,2,3, 4, 5,101,300]
+def createMatricesAndVectors(n_values:list):
   A_matrices = {}
   b_vectors = {}
   x_solutions = {}
@@ -10,6 +9,8 @@ def createMatricesAndVectors():
       A = 2 * np.eye(n) - np.eye(n, k=1) - np.eye(n, k=-1)
       A[0, 0] = 1
       A[n-1, n-1] = 1
+      A[0,1] = 0
+      A[n-1,n-2] = 0
 
       b = np.full(n, 10**-4)
       b[-1] = 0.5
@@ -23,8 +24,8 @@ def createMatricesAndVectors():
   
   return A_matrices,b_vectors,x_solutions
 
-def test(A:np.ndarray,b:np.ndarray,xSol:np.ndarray)->float:
-  x :np.ndarray = gaussian_elimination(A,b)
+def test(A:np.ndarray,b:np.ndarray,xSol:np.ndarray,f:callable)->float:
+  x :np.ndarray = f(A,b)
 
   errors = [abs(x[i]-xSol[i]) for i in range(xSol.shape[0])]
   return max(errors)
@@ -32,9 +33,9 @@ def test(A:np.ndarray,b:np.ndarray,xSol:np.ndarray)->float:
 
 
 if __name__ == "__main__":
-  A_matrices,b_vectors,x_solutions = createMatricesAndVectors()
+  A_matrices,b_vectors,x_solutions = createMatricesAndVectors([2,3, 4, 5,101,300])
 
   for size in A_matrices:
-     print(f"for n={size} the error is :",test(A_matrices[size],b_vectors[size],x_solutions[size]))
+     print(f"for n={size} the error is :",test(A_matrices[size],b_vectors[size],x_solutions[size],gaussian_elimination))
   
-  """you can see in the console which one is for """
+  """you can see in the console which one is for n=101"""

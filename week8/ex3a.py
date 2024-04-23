@@ -13,16 +13,16 @@ def backwardStep(A:np.ndarray,M:int,N:int,b:np.ndarray,i:int,x:np.ndarray):
   x[i] = b[i]
   for j in range(i+1,N):
     x[i] -= A[i,j]*x[j]
-    x[i] /= A[i,i]
+  x[i] /= A[i,i]
 
 
 
 def gaussian_elimination(A: np.ndarray, b: np.ndarray) -> np.ndarray:
     M,N = A.shape
-    for i in range(N):
+    for i in range(M):
       forwardStep(A,M,N,b,i)
     x = np.zeros(M)
-    for i in range(M):
+    for i in range(M-1,-1,-1):
        backwardStep(A,M,N,b,i,x)
     return x
       
