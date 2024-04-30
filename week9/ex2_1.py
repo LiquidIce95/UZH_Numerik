@@ -14,7 +14,7 @@ def computeProjection(u:np.ndarray,v:np.ndarray)->np.ndarray:
 
   cu : np.ndarray = deepcopy(u)
 
-  return factor* u
+  return factor* cu
 
 
 def GramSchmidtOrthogonalizing(A:np.ndarray)->np.ndarray:
@@ -40,3 +40,7 @@ def computeQRmatrices(A:np.ndarray)->Union[np.ndarray,np.ndarray]:
   R:np.ndarray = np.dot(np.transpose(Q),A)
 
   return Q,R
+
+
+if __name__ == "__main__":
+  pass
