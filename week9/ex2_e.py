@@ -63,5 +63,5 @@ if __name__ == "__main__":
     Q,R = computeQRmatrices(A[j])
     print(f"{np.linalg.norm(np.dot(Q.transpose(),Q)-np.eye(n))} is the error of Q for gramSchmidt")
     Q,R = decomposeQRHouseHolder(A[j])
-    print(f"{np.linalg.norm(np.dot(Q.transpose(),Q)-np.eye(n))} is the error of Q for gramSchmidt")
+    print(f"{np.linalg.norm(np.dot(Q.transpose(),Q)-np.eye(n))} is the error of Q for HouseHolder")
 
