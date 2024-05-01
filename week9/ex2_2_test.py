@@ -1,5 +1,5 @@
 import unittest
-from week9.ex2_a import *
+from week9.ex2_b import *
 
 class TestGramSchmidt(unittest.TestCase):
     def test_compute_projection_basic(self):
@@ -35,7 +35,7 @@ class TestGramSchmidt(unittest.TestCase):
 
     def test_compute_qr_matrices_with_singular_matrix(self):
         A = np.array([[1, 1], [1, 1]], dtype=float)
-        Q, R = computeQRmatrices(A.copy())
+        Q, R = qr_decomposition_householder(A.copy())
         np.testing.assert_array_almost_equal(np.dot(Q, R), A)
 
 if __name__ == '__main__':
