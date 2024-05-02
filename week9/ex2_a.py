@@ -12,9 +12,7 @@ def computeProjection(u:np.ndarray,v:np.ndarray)->np.ndarray:
   denominator : float = np.dot(u,u)
   factor : float = nominator/denominator
 
-  cu : np.ndarray = deepcopy(u)
-
-  return factor* cu
+  return factor* u
 
 
 def GramSchmidtOrthogonalizing(A:np.ndarray)->np.ndarray:
@@ -26,11 +24,15 @@ def GramSchmidtOrthogonalizing(A:np.ndarray)->np.ndarray:
 
   m,n = A.shape
 
+  norm :float = np.linalg.norm(A[:,0])
+  A[:,0] /= norm
+
   for j in range(1,n):
     projections :list = [computeProjection(A[:,k],A[:,j]) for k in range(0,j)]
-    sumProjections :float = sum(projections)
+    sumProjections :float = np.sum(projections)
     A[:,j] -= sumProjections
-
+    norm= np.linalg.norm(A[:, j])
+    A[:,j] /= norm
 
   return A
 
