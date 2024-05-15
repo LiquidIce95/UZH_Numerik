@@ -54,6 +54,8 @@ def testTwo():
   b2 = b3 = np.array([1, 2, 3, 4])
 
   omega = 1.5 / infinity_norm(A2)
+  epsilon = 1e-10
+
   try:
       x, iters = richardson(A2, b2, omega, epsilon, 10**5)
       print(f"System A2: converged in {iters} iterations")
@@ -75,5 +77,9 @@ if __name__ == "__main__":
   the fith test can be bounded by 2/\lambda_max therefore fullfilling the criteria for 
   convergence as well as the sixth test
   """
-  # testTwo()
+  testTwo()
+  """
+  since omega = 1.5/||A||_inf < 2/||A||_inf < 2/lambda_max it still satisfies the
+  condition for stable convergence
+  """
   
