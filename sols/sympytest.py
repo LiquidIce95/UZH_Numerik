@@ -97,3 +97,14 @@ print("\n",taylor_expansion_5th_order)
 
 print(sp.diff(f,x,2))
 print(sp.integrate(f,x))
+
+
+def function(x):
+    return 3*sp.cos(x)+x**3
+
+
+
+a = sp.symbols('a')
+
+print(function(a))
+print(function(0))
