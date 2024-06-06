@@ -108,3 +108,19 @@ a = sp.symbols('a')
 
 print(function(a))
 print(function(0))
+
+
+# Define the variable
+n = sp.symbols('n', integer=True)
+
+# Harmonic series: sum(1/n) from n=1 to infinity
+harmonic_series = sp.Sum(1/n, (n, 1, sp.oo))
+
+# Series 1/n^2: sum(1/n^2) from n=1 to infinity
+series_1_over_n2 = sp.Sum(1/n**2, (n, 1, sp.oo))
+
+# Compute the limits
+harmonic_series_limit = harmonic_series.doit()
+series_1_over_n2_limit = series_1_over_n2.doit()
+
+print(harmonic_series_limit, series_1_over_n2_limit)
